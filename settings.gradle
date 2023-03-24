@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "FloorMapView"
-include ':app'
 include ':floormap'
+include ':sampleapp'
