@@ -15,7 +15,7 @@ class FloorMapView(context: Context) : FrameLayout(context, null, 0) {
         binding = LayoutFloorMapViewBinding.bind(inflate(context, R.layout.layout_floor_map_view, this))
     }
 
-    fun setAdapter(adapter: MapIconAdapter<*, *>) {
+    fun setAdapter(adapter: MapIconAdapter<*, *, *>) {
         adapter.onAttachToFloorMapView(floorMapView = this)
     }
 
