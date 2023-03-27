@@ -1,11 +1,16 @@
 package com.thk.floormap
 
 import android.content.Context
+import android.util.AttributeSet
 import android.widget.FrameLayout
 import android.widget.ImageView
 import com.thk.floormap.databinding.LayoutFloorMapViewBinding
 
-class FloorMapView(context: Context) : FrameLayout(context, null, 0) {
+class FloorMapView : FrameLayout {
+    constructor(context: Context) : this(context, null)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
     private val binding: LayoutFloorMapViewBinding
 
     val mapImage: ImageView
