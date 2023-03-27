@@ -6,6 +6,13 @@ public class DeviceStatus {
     private String status;
     private String switchBinary;
 
+    public DeviceStatus(String id, String device, String status, String switchBinary) {
+        this.id = id;
+        this.device = device;
+        this.status = status;
+        this.switchBinary = switchBinary;
+    }
+
     public String getId() {
         return id;
     }

@@ -8,8 +8,15 @@ import com.thk.floormap.databinding.LayoutFloorMapViewBinding
 
 class FloorMapView : FrameLayout {
     constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+    ) : this(context, attrs, 0)
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int,
+    ) : super(context, attrs, defStyleAttr)
 
     private val binding: LayoutFloorMapViewBinding
 
@@ -20,7 +27,7 @@ class FloorMapView : FrameLayout {
         binding = LayoutFloorMapViewBinding.bind(inflate(context, R.layout.layout_floor_map_view, this))
     }
 
-    fun setAdapter(adapter: MapIconAdapter<*, *, *>) {
+    fun setAdapter(adapter: MapIconAdapter<*,*>) {
         adapter.onAttachToFloorMapView(floorMapView = this)
     }
 

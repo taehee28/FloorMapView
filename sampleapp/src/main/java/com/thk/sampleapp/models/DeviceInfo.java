@@ -8,6 +8,15 @@ public class DeviceInfo {
     private String y;
     private String floor;
 
+    public DeviceInfo(String id, String device, String name, String x, String y, String floor) {
+        this.id = id;
+        this.device = device;
+        this.name = name;
+        this.x = x;
+        this.y = y;
+        this.floor = floor;
+    }
+
     public String getId() {
         return id;
     }
