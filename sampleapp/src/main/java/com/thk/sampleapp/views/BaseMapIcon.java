@@ -13,6 +13,9 @@ import com.thk.sampleapp.databinding.ItemIconBaseBinding;
 import com.thk.sampleapp.models.DeviceInfo;
 import com.thk.sampleapp.models.DeviceStatus;
 
+/**
+ * 구현부에서 {@link MapIcon}에 대한 Base 클래스를 만들어 공통 구현 내용을 추출
+ */
 public abstract class BaseMapIcon extends MapIcon<DeviceStatus, DeviceInfo> {
 
     protected ItemIconBaseBinding binding;

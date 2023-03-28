@@ -67,9 +67,12 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
     private fun initIcons() = mapViewNotNull { mapView ->
         getInfoList().forEach { info ->
             val icon = onCreateIcon(mapView.context, info).apply {
+
+                // 처음은 1층에 해당하는 아이콘을 표시함
                 visibility = if (floor == "1") View.VISIBLE else View.GONE
 
                 setOnClickListener { view ->
+                    // 이전에 selected한 아이콘의 selected 해제 처리
                     mapView.findViewWithTag<View>(selectedIconTag)?.also { selectedView ->
                         selectedView.isSelected = false
                     }
@@ -81,6 +84,7 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
                 }
             }
 
+            // 첫번째로 그리는 아이콘을 selected 처리
             if (selectedIconTag.isBlank()) {
                 icon.isSelected = true
                 selectedIconTag = icon.tag as String

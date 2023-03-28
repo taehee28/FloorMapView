@@ -18,16 +18,16 @@ class FloorMapView : FrameLayout {
         defStyleAttr: Int,
     ) : super(context, attrs, defStyleAttr)
 
-    private val binding: LayoutFloorMapViewBinding
+    private val binding: LayoutFloorMapViewBinding =
+        LayoutFloorMapViewBinding.bind(inflate(context, R.layout.layout_floor_map_view, this))
 
     val mapImage: ImageView
         get() = binding.mapImageView
 
+    /**
+     * 어떤 층을 표시하고 있는지에 대한 변수
+     */
     private var floor = "1"
-
-    init {
-        binding = LayoutFloorMapViewBinding.bind(inflate(context, R.layout.layout_floor_map_view, this))
-    }
 
     fun setAdapter(adapter: MapIconAdapter<*,*>) {
         adapter.onAttachToFloorMapView(floorMapView = this)
@@ -38,6 +38,9 @@ class FloorMapView : FrameLayout {
         }
     }
 
+    /**
+     * 층 변경 버튼의 visibility 설정
+     */
     fun setFloorButtonVisibility(show: Boolean) {
         binding.btnChangeFloor.visibility = if (show) VISIBLE else GONE
     }
