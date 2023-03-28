@@ -8,11 +8,11 @@ import android.widget.ImageView
 import com.thk.floormap.databinding.LayoutFloorMapViewBinding
 
 class FloorMapView : FrameLayout {
-    constructor(context: Context) : this(context, null)
+    constructor(context: Context) : super(context)
     constructor(
         context: Context,
         attrs: AttributeSet?,
-    ) : this(context, attrs, 0)
+    ) : super(context, attrs)
     constructor(
         context: Context,
         attrs: AttributeSet?,
