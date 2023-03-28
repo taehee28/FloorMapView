@@ -10,6 +10,12 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"/>
 
-    <!-- TODO: 2층 버튼 -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_change_floor"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="top|end"
+        android:gravity="center"
+        android:text="층\n변경"/>
 
 </FrameLayout>

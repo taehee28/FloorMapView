@@ -31,9 +31,28 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
     /**
      * 평면도에 추가한 아이콘 중 특정 디바이스의 아이콘을 찾아 상태를 업데이트 합니다.
      */
-    fun updateIconStatus(deviceNumber: String) = floorMapView?.let { mapView ->
+    fun updateIconStatus(deviceNumber: String) = mapViewNotNull { mapView ->
         mapView.findViewWithTag<IC>(deviceNumber)?.also { icon ->
             onBindIcon(icon = icon, deviceNumber = deviceNumber)
+        }
+    }
+
+    /**
+     * 평면도의 층을 변경합니다. 해당 층에 속하는 디바이스 아이콘만 표시합니다.
+     */
+    fun changeFloor(floor: String) = mapViewNotNull { mapView ->
+        selectedIconTag = ""
+
+        getInfoList().forEach { info ->
+            val id = getTagId(info)
+            val icon = mapView.findViewWithTag<IC>(id)
+            if (icon != null) {
+                icon.visibility = if (icon.floor == floor) View.VISIBLE else View.GONE
+            }
+
+            if (selectedIconTag.isBlank()) {
+                icon.callOnClick()
+            }
         }
     }
 
@@ -43,7 +62,7 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
         initIcons()
     }
 
-    private fun initIcons() = floorMapView?.let { mapView ->
+    private fun initIcons() = mapViewNotNull { mapView ->
         getInfoList().forEach { info ->
             val icon = onCreateIcon(mapView.context, info).apply {
                 visibility = if (floor == "1") View.VISIBLE else View.GONE
@@ -67,5 +86,9 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
 
             mapView.addView(icon)
         }
+    }
+
+    private inline fun mapViewNotNull(block: (FloorMapView) -> Unit) {
+        floorMapView?.also { block(it) }
     }
 }

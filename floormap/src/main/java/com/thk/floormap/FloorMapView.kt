@@ -23,12 +23,23 @@ class FloorMapView : FrameLayout {
     val mapImage: ImageView
         get() = binding.mapImageView
 
+    private var floor = "1"
+
     init {
         binding = LayoutFloorMapViewBinding.bind(inflate(context, R.layout.layout_floor_map_view, this))
     }
 
     fun setAdapter(adapter: MapIconAdapter<*,*>) {
         adapter.onAttachToFloorMapView(floorMapView = this)
+
+        binding.btnChangeFloor.setOnClickListener {
+            floor = if (floor == "1") "2" else "1"
+            adapter.changeFloor(floor)
+        }
+    }
+
+    fun setFloorButtonVisibility(show: Boolean) {
+        binding.btnChangeFloor.visibility = if (show) VISIBLE else GONE
     }
 
 }
