@@ -1,7 +1,6 @@
 package com.thk.floormap
 
 import android.content.Context
-import android.util.Log
 import android.view.View
 
 abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
@@ -17,15 +16,15 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
 
     abstract fun getInfoList(): List<INFO>
 
-    abstract fun getTagId(info: INFO): String
+    abstract fun getDeviceNumber(info: INFO): String
 
     /**
      * 평면도에 추가한 아이콘 전체의 상태를 업데이트 합니다.
      */
     fun updateIconStatus() {
         getInfoList().forEach { info ->
-            val id = getTagId(info)
-            updateIconStatus(deviceNumber = id)
+            val number = getDeviceNumber(info)
+            updateIconStatus(deviceNumber = number)
         }
     }
 
@@ -46,8 +45,8 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
         var setSelectedFlag = false
 
         getInfoList().forEach { info ->
-            val id = getTagId(info)
-            val icon = mapView.findViewWithTag<IC>(id)
+            val number = getDeviceNumber(info)
+            val icon = mapView.findViewWithTag<IC>(number)
             if (icon != null) {
                 icon.visibility = if (icon.floor == floor) View.VISIBLE else View.GONE
             }

@@ -37,7 +37,7 @@ public class LightIconAdapter extends MapIconAdapter<DeviceInfo, LightIcon> {
 
     @NonNull
     @Override
-    public String getTagId(DeviceInfo deviceInfo) {
+    public String getDeviceNumber(DeviceInfo deviceInfo) {
         return deviceInfo.getId();
     }
 }
