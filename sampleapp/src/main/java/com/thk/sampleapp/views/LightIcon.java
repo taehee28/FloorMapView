@@ -11,7 +11,7 @@ import com.thk.sampleapp.models.DeviceInfo;
 import com.thk.sampleapp.models.DeviceStatus;
 import com.thk.sampleapp.models.TestData;
 
-public class LightIcon extends MapIcon<DeviceStatus, DeviceInfo> {
+public class LightIcon extends BaseMapIcon {
 
     /*
     note: MapIcon을 감싸는 BaseIcon 클래스를 하나 만들고, 해당 클래스를 상속받아서
@@ -21,32 +21,12 @@ public class LightIcon extends MapIcon<DeviceStatus, DeviceInfo> {
     private ItemIconLightBinding binding;
 
     public LightIcon(@NonNull Context context) {
-        super(context);
-
-        binding = ItemIconLightBinding.bind(inflate(context, R.layout.item_icon_light, this));
-    }
-
-    @Override
-    public void setupIcon(DeviceInfo deviceInfo) {
-        setTag(deviceInfo.getId());
-
-        setX(Float.parseFloat(deviceInfo.getX()));
-        setY(Float.parseFloat(deviceInfo.getY()));
-
-        // todo 이름 설정
-        binding.btnIcon.setText(deviceInfo.getName());
-
-        floor = deviceInfo.getFloor();
+        super(context, R.drawable.selector_ic_mapicon_device_light);
     }
 
     @Override
     public void updateIcon(DeviceStatus data) {
+        setActivated(data.getSwitchBinary().equals(TestData.ON));
         setEnabled(data.getStatus().equals(TestData.CONNECTED));
-    }
-
-    @Override
-    public void setEnabled(boolean enabled) {
-        binding.btnIcon.setEnabled(enabled);
-        super.setEnabled(enabled);
     }
 }

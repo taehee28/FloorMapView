@@ -18,7 +18,7 @@ public class TestData {
             new DeviceStatus("1", DEVICE_LIGHT, CONNECTED, ON),
             new DeviceStatus("2", DEVICE_LIGHT, DISCONNECTED, ON),
             new DeviceStatus("3", DEVICE_LIGHT, CONNECTED, ON),
-            new DeviceStatus("4", DEVICE_LIGHT, CONNECTED, ON),
+            new DeviceStatus("4", DEVICE_LIGHT, CONNECTED, OFF),
             new DeviceStatus("21", DEVICE_HEAT, CONNECTED, ON),
             new DeviceStatus("22", DEVICE_HEAT, CONNECTED, ON),
             new DeviceStatus("23", DEVICE_HEAT, CONNECTED, ON),
