@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
         LightIconAdapter adapter = new LightIconAdapter();
         binding.floorMapView.setAdapter(adapter);
+        adapter.setIconClickListener(v -> {
+
+        });
         adapter.updateIconStatus();
     }
 }
