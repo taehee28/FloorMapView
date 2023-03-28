@@ -34,6 +34,9 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
     fun updateIconStatus(deviceNumber: String) = mapViewNotNull { mapView ->
         mapView.findViewWithTag<IC>(deviceNumber)?.also { icon ->
             onBindIcon(icon = icon, deviceNumber = deviceNumber)
+
+            // selected 상태면 onClick 호출함 -> 바깥 업데이트할 수 있도록 신호 
+            if (icon.isSelected) icon.callOnClick()
         }
     }
 
