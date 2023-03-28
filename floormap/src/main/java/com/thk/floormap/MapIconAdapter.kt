@@ -1,6 +1,7 @@
 package com.thk.floormap
 
 import android.content.Context
+import android.util.Log
 import android.view.View
 
 abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
@@ -41,7 +42,8 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
      * 평면도의 층을 변경합니다. 해당 층에 속하는 디바이스 아이콘만 표시합니다.
      */
     fun changeFloor(floor: String) = mapViewNotNull { mapView ->
-        selectedIconTag = ""
+        // 바뀐 층의 가장 첫번째 아이콘을 selected 처리했는지 표시하는 flag  
+        var setSelectedFlag = false
 
         getInfoList().forEach { info ->
             val id = getTagId(info)
@@ -50,8 +52,9 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
                 icon.visibility = if (icon.floor == floor) View.VISIBLE else View.GONE
             }
 
-            if (selectedIconTag.isBlank()) {
+            if (setSelectedFlag.not() && icon.floor == floor) {
                 icon.callOnClick()
+                setSelectedFlag = true
             }
         }
     }
