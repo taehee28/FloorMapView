@@ -5,7 +5,7 @@ import android.view.View
 
 abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
 
-    protected var floorMapView: FloorMapView? = null
+    private var floorMapView: FloorMapView? = null
 
     private var selectedIconTag: String = "";
     var iconClickListener: View.OnClickListener? = null
@@ -61,7 +61,7 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
         }
     }
 
-    fun onAttachToFloorMapView(floorMapView: FloorMapView) {
+    internal fun onAttachToFloorMapView(floorMapView: FloorMapView) {
         this.floorMapView = floorMapView
 
         initIcons()
