@@ -11,10 +11,9 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_change_floor"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_gravity="top|end"
-        android:gravity="center"
-        android:text="층\n변경"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="0dp"
+        android:minHeight="0dp" />
 
 </FrameLayout>

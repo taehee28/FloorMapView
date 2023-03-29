@@ -2,51 +2,51 @@
 <resources>
     <declare-styleable name="FloorMapView">
         <attr name="floormap_floorButton_width" format="dimension">
-            <!-- The view should be as big as its parent (minus padding).
-           Introduced in API Level 8. -->
             <enum name="match_parent" value="-1" />
-            <!-- The view should be only big enough to enclose its content (plus padding). -->
             <enum name="wrap_content" value="-2" />
         </attr>
         <attr name="floormap_floorButton_height" format="dimension">
-            <!-- The view should be as big as its parent (minus padding).
-           Introduced in API Level 8. -->
             <enum name="match_parent" value="-1" />
-            <!-- The view should be only big enough to enclose its content (plus padding). -->
             <enum name="wrap_content" value="-2" />
         </attr>
+
         <attr name="floormap_floorButton_text" format="string|reference"/>
         <attr name="floormap_floorButton_textSize" format="dimension"/>
         <attr name="floormap_floorButton_textColor" format="color|reference"/>
-        <attr name="floormap_floorButton_textStyle" format="reference"/>
-        <attr name="floormap_floorButton_background" format="reference|color"/>
-        <attr name="floormap_floorButton_layout_gravity">
-            <!-- Push object to the top of its container, not changing its size. -->
+        <!-- 적용하고자 하는 폰트 파일은 res/font 폴더에 존재해야 함 -->
+        <attr name="floormap_floorButton_textFont" format="string"/>
+
+        <attr name="floormap_floorButton_gravity">
             <flag name="top" value="0x30" />
-            <!-- Push object to the bottom of its container, not changing its size. -->
             <flag name="bottom" value="0x50" />
-            <!-- Place object in the vertical center of its container, not changing its size. -->
             <flag name="center_vertical" value="0x10" />
-            <!-- Place object in the horizontal center of its container, not changing its size. -->
             <flag name="center_horizontal" value="0x01" />
-            <!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
             <flag name="center" value="0x11" />
-            <!-- Push object to the beginning of its container, not changing its size. -->
             <flag name="start" value="0x00800003" />
-            <!-- Push object to the end of its container, not changing its size. -->
             <flag name="end" value="0x00800005" />
         </attr>
+        <!-- @null은 적용되지 않음 -->
+        <attr name="floormap_floorButton_layout_gravity">
+            <flag name="top" value="0x30" />
+            <flag name="bottom" value="0x50" />
+            <flag name="center_vertical" value="0x10" />
+            <flag name="center_horizontal" value="0x01" />
+            <flag name="center" value="0x11" />
+            <flag name="start" value="0x00800003" />
+            <flag name="end" value="0x00800005" />
+        </attr>
+
+        <attr name="floormap_floorButton_background" format="reference|color"/>
+
         <attr name="floormap_floorButton_marginTop" format="dimension"/>
         <attr name="floormap_floorButton_marginBottom" format="dimension"/>
         <attr name="floormap_floorButton_marginStart" format="dimension"/>
         <attr name="floormap_floorButton_marginEnd" format="dimension"/>
+
         <attr name="floormap_floorButton_visibility">
-            <!-- Visible on screen; the default value. -->
-            <enum name="visible" value="0" />
-            <!-- Not displayed, but taken into account during layout (space is left for it). -->
-            <enum name="invisible" value="1" />
-            <!-- Completely hidden, as if the view had not been added. -->
-            <enum name="gone" value="2" />
+            <enum name="visible" value="0x00000000" />
+            <enum name="invisible" value="0x00000004" />
+            <enum name="gone" value="0x00000008" />
         </attr>
     </declare-styleable>
 </resources>

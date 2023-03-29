@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">sampleapp</string>
+
+    <string name="btn_floorButton_text">층\n변경</string>
 </resources>
