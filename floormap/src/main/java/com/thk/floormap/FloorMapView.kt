@@ -71,7 +71,7 @@ class FloorMapView : FrameLayout {
             }
 
 
-            val visibility = typedArray.getInteger(R.styleable.FloorMapView_floorButton_visibility, View.VISIBLE)
+            val visibility = typedArray.getInteger(R.styleable.FloorMapView_floorButton_visibility, View.GONE)
             val text = typedArray.getString(R.styleable.FloorMapView_floorButton_text) ?: ""
             val textSize = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floorButton_textSize, resources.getDimensionPixelSize(R.dimen.floorButton_textSize_default))
             val textColor = typedArray.getColor(R.styleable.FloorMapView_floorButton_textColor, ContextCompat.getColor(context, R.color.floorButton_textColor_default))

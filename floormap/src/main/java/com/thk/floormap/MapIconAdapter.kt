@@ -52,7 +52,7 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
             val icon = mapView.findViewWithTag<IC>(number)
             if (icon != null) {
                 icon.visibility = if (icon.floor == floor) View.VISIBLE else View.GONE
-                
+
                 if (setSelectedFlag.not() && icon.floor == floor) {
                     icon.callOnClick()
                     setSelectedFlag = true
