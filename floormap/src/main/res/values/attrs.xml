@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="FloorMapView">
-        <attr name="floormap_floorButton_width" format="dimension">
+        <attr name="floorButton_width" format="dimension">
             <enum name="match_parent" value="-1" />
             <enum name="wrap_content" value="-2" />
         </attr>
-        <attr name="floormap_floorButton_height" format="dimension">
+        <attr name="floorButton_height" format="dimension">
             <enum name="match_parent" value="-1" />
             <enum name="wrap_content" value="-2" />
         </attr>
 
-        <attr name="floormap_floorButton_text" format="string|reference"/>
-        <attr name="floormap_floorButton_textSize" format="dimension"/>
-        <attr name="floormap_floorButton_textColor" format="color|reference"/>
+        <attr name="floorButton_text" format="string|reference"/>
+        <attr name="floorButton_textSize" format="dimension"/>
+        <attr name="floorButton_textColor" format="color|reference"/>
         <!-- 적용하고자 하는 폰트 파일은 res/font 폴더에 존재해야 함 -->
-        <attr name="floormap_floorButton_textFont" format="string"/>
+        <attr name="floorButton_textFont" format="string"/>
 
-        <attr name="floormap_floorButton_gravity">
+        <attr name="floorButton_gravity">
             <flag name="top" value="0x30" />
             <flag name="bottom" value="0x50" />
             <flag name="center_vertical" value="0x10" />
@@ -26,7 +26,7 @@
             <flag name="end" value="0x00800005" />
         </attr>
         <!-- @null은 적용되지 않음 -->
-        <attr name="floormap_floorButton_layout_gravity">
+        <attr name="floorButton_layout_gravity">
             <flag name="top" value="0x30" />
             <flag name="bottom" value="0x50" />
             <flag name="center_vertical" value="0x10" />
@@ -36,14 +36,14 @@
             <flag name="end" value="0x00800005" />
         </attr>
 
-        <attr name="floormap_floorButton_background" format="reference|color"/>
+        <attr name="floorButton_background" format="reference|color"/>
 
-        <attr name="floormap_floorButton_marginTop" format="dimension"/>
-        <attr name="floormap_floorButton_marginBottom" format="dimension"/>
-        <attr name="floormap_floorButton_marginStart" format="dimension"/>
-        <attr name="floormap_floorButton_marginEnd" format="dimension"/>
+        <attr name="floorButton_marginTop" format="dimension"/>
+        <attr name="floorButton_marginBottom" format="dimension"/>
+        <attr name="floorButton_marginStart" format="dimension"/>
+        <attr name="floorButton_marginEnd" format="dimension"/>
 
-        <attr name="floormap_floorButton_visibility">
+        <attr name="floorButton_visibility">
             <enum name="visible" value="0x00000000" />
             <enum name="invisible" value="0x00000004" />
             <enum name="gone" value="0x00000008" />

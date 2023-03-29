@@ -52,15 +52,15 @@ class FloorMapView : FrameLayout {
 
         binding.btnChangeFloor.apply {
             // match_parent와 wrap_content를 처리할 수 있는 getLayoutDimension 메서드 사용
-            val btnWidth = typedArray.getLayoutDimension(R.styleable.FloorMapView_floormap_floorButton_width, LayoutParams.WRAP_CONTENT)
-            val btnHeight = typedArray.getLayoutDimension(R.styleable.FloorMapView_floormap_floorButton_height, LayoutParams.WRAP_CONTENT)
+            val btnWidth = typedArray.getLayoutDimension(R.styleable.FloorMapView_floorButton_width, LayoutParams.WRAP_CONTENT)
+            val btnHeight = typedArray.getLayoutDimension(R.styleable.FloorMapView_floorButton_height, LayoutParams.WRAP_CONTENT)
 
             layoutParams = LayoutParams(btnWidth, btnHeight).apply {
-                val layoutGravity = typedArray.getInteger(R.styleable.FloorMapView_floormap_floorButton_layout_gravity, Gravity.START or Gravity.TOP)
-                val marginTop = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floormap_floorButton_marginTop, 0)
-                val marginBottom = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floormap_floorButton_marginBottom, 0)
-                val marginStart = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floormap_floorButton_marginStart, 0)
-                val marginEnd = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floormap_floorButton_marginEnd, 0)
+                val layoutGravity = typedArray.getInteger(R.styleable.FloorMapView_floorButton_layout_gravity, Gravity.START or Gravity.TOP)
+                val marginTop = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floorButton_marginTop, 0)
+                val marginBottom = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floorButton_marginBottom, 0)
+                val marginStart = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floorButton_marginStart, 0)
+                val marginEnd = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floorButton_marginEnd, 0)
 
                 this.gravity = layoutGravity
 
@@ -71,11 +71,11 @@ class FloorMapView : FrameLayout {
             }
 
 
-            val visibility = typedArray.getInteger(R.styleable.FloorMapView_floormap_floorButton_visibility, View.VISIBLE)
-            val text = typedArray.getString(R.styleable.FloorMapView_floormap_floorButton_text) ?: ""
-            val textSize = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floormap_floorButton_textSize, resources.getDimensionPixelSize(R.dimen.floorButton_textSize_default))
-            val textColor = typedArray.getColor(R.styleable.FloorMapView_floormap_floorButton_textColor, ContextCompat.getColor(context, R.color.floorButton_textColor_default))
-            val gravity = typedArray.getInteger(R.styleable.FloorMapView_floormap_floorButton_gravity, Gravity.CENTER)
+            val visibility = typedArray.getInteger(R.styleable.FloorMapView_floorButton_visibility, View.VISIBLE)
+            val text = typedArray.getString(R.styleable.FloorMapView_floorButton_text) ?: ""
+            val textSize = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floorButton_textSize, resources.getDimensionPixelSize(R.dimen.floorButton_textSize_default))
+            val textColor = typedArray.getColor(R.styleable.FloorMapView_floorButton_textColor, ContextCompat.getColor(context, R.color.floorButton_textColor_default))
+            val gravity = typedArray.getInteger(R.styleable.FloorMapView_floorButton_gravity, Gravity.CENTER)
 
             this.visibility = visibility
             this.text = text
@@ -84,13 +84,13 @@ class FloorMapView : FrameLayout {
             this.gravity = gravity
 
             // 색상 값인지 drawable 파일 구분할 필요 없이 전부 Drawable로 가져올 수 있음
-            val backgroundDrawable = typedArray.getDrawable(R.styleable.FloorMapView_floormap_floorButton_background)
-            if (typedArray.hasValueOrEmpty(R.styleable.FloorMapView_floormap_floorButton_background)) {
+            val backgroundDrawable = typedArray.getDrawable(R.styleable.FloorMapView_floorButton_background)
+            if (typedArray.hasValueOrEmpty(R.styleable.FloorMapView_floorButton_background)) {
                 this.background = backgroundDrawable
             }
 
             // res/font 폴더에 있는 폰트는 리소스 아이디로 가져와서 적용
-            val fontResId = typedArray.getResourceId(R.styleable.FloorMapView_floormap_floorButton_textFont, 0);
+            val fontResId = typedArray.getResourceId(R.styleable.FloorMapView_floorButton_textFont, 0);
             if (fontResId != 0) typeface = ResourcesCompat.getFont(context, fontResId)
 
         }
