@@ -15,6 +15,7 @@
         app:floorButton_height="@dimen/btn_floorButton_size"
         app:floorButton_layout_gravity="top|end"
         app:floorButton_text="@string/btn_floorButton_text"
+        app:floorButton_visibility="visible"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

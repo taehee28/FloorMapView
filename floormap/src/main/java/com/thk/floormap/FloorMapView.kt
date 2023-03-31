@@ -1,9 +1,7 @@
 package com.thk.floormap
 
 import android.content.Context
-import android.graphics.Typeface
 import android.util.AttributeSet
-import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -20,6 +18,9 @@ class FloorMapView : FrameLayout {
 
     val mapImage: ImageView
         get() = binding.mapImageView
+
+    val iconContainer: FrameLayout
+        get() = binding.iconContainer
 
     /**
      * 어떤 층을 표시하고 있는지에 대한 변수
@@ -49,6 +50,27 @@ class FloorMapView : FrameLayout {
 
     private fun init(attrs: AttributeSet?) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.FloorMapView, 0, 0)
+
+        val imageWidth = typedArray.getLayoutDimension(R.styleable.FloorMapView_floorImage_width, LayoutParams.MATCH_PARENT)
+        val imageHeight = typedArray.getLayoutDimension(R.styleable.FloorMapView_floorImage_height, LayoutParams.MATCH_PARENT)
+
+        val imageParams = LayoutParams(imageWidth, imageHeight).apply {
+            val layoutGravity = typedArray.getInteger(R.styleable.FloorMapView_floorImage_layout_gravity, Gravity.CENTER)
+            val marginTop = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floorImage_marginTop, 0)
+            val marginBottom = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floorImage_marginBottom, 0)
+            val marginStart = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floorImage_marginStart, 0)
+            val marginEnd = typedArray.getDimensionPixelSize(R.styleable.FloorMapView_floorImage_marginEnd, 0)
+
+            this.gravity = layoutGravity
+
+            this.topMargin = marginTop
+            this.bottomMargin = marginBottom
+            setMarginStart(marginStart)
+            setMarginEnd(marginEnd)
+        }
+
+        binding.mapImageView.layoutParams = imageParams
+        binding.iconContainer.layoutParams = imageParams
 
         binding.btnChangeFloor.apply {
             // match_parent와 wrap_content를 처리할 수 있는 getLayoutDimension 메서드 사용

@@ -32,7 +32,7 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
      * 평면도에 추가한 아이콘 중 특정 디바이스의 아이콘을 찾아 상태를 업데이트 합니다.
      */
     fun updateIconStatus(deviceNumber: String) = mapViewNotNull { mapView ->
-        mapView.findViewWithTag<IC>(deviceNumber)?.also { icon ->
+        mapView.iconContainer.findViewWithTag<IC>(deviceNumber)?.also { icon ->
             onBindIcon(icon = icon, deviceNumber = deviceNumber)
 
             // selected 상태면 onClick 호출함 -> 바깥 업데이트할 수 있도록 신호 
@@ -49,7 +49,7 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
 
         getInfoList().forEach { info ->
             val number = getDeviceNumber(info)
-            val icon = mapView.findViewWithTag<IC>(number)
+            val icon = mapView.iconContainer.findViewWithTag<IC>(number)
             if (icon != null) {
                 icon.visibility = if (icon.floor == floor) View.VISIBLE else View.GONE
 
@@ -77,7 +77,7 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
 
                 setOnClickListener { view ->
                     // 이전에 selected한 아이콘의 selected 해제 처리
-                    mapView.findViewWithTag<View>(selectedIconTag)?.also { selectedView ->
+                    mapView.iconContainer.findViewWithTag<View>(selectedIconTag)?.also { selectedView ->
                         selectedView.isSelected = false
                     }
 
@@ -94,7 +94,7 @@ abstract class MapIconAdapter<INFO, IC: MapIcon<*, *>> {
                 selectedIconTag = icon.tag as String
             }
 
-            mapView.addView(icon)
+            mapView.iconContainer.addView(icon)
         }
     }
 
