@@ -21,10 +21,10 @@ public class TestData {
     );
 
     public static List<DeviceInfo> lightDeviceInfoList = Arrays.asList(
-            new DeviceInfo("1", DEVICE_LIGHT, "1번", "100", "100", "1"),
-            new DeviceInfo("2", DEVICE_LIGHT, "2번", "300", "300", "1"),
-            new DeviceInfo("3", DEVICE_LIGHT, "3번", "200", "300", "2"),
-            new DeviceInfo("4", DEVICE_LIGHT, "4번", "300", "100", "2")
+            new DeviceInfo("1", DEVICE_LIGHT, "1번", "300", "300", "1"),
+            new DeviceInfo("2", DEVICE_LIGHT, "2번", "600", "300", "1"),
+            new DeviceInfo("3", DEVICE_LIGHT, "3번", "300", "700", "2"),
+            new DeviceInfo("4", DEVICE_LIGHT, "4번", "700", "700", "2")
     );
 
     public static List<DeviceStatus> getDeviceList(List<DeviceInfo> infoList) {
